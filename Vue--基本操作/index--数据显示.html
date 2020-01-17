@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="d">{{name}}</div>
+    <script src="../js/vue.js"></script>
+    <script>
+        //创建一个Vue，通过let或const定义
+        let app = new Vue({
+            el: '#d',
+            data: {
+                name: '贺哲'
+            }
+        })
+    </script>
+</body>
+</html>

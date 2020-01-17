@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--v-model数据双向绑定单选按钮-->
+    <input type="text" v-model="gender">
+    <label for="man">
+        <input type="radio" id="man" v-model="gender" name="man" value="男">男
+    </label>
+    <label for="nv">
+        <input type="radio" id="nv" v-model="gender" name="man" value="女">女
+    </label>
+    <h1>{{gender}}</h1>
+    <hr>
+    <!--绑定checkbox,单个情况,返回Boolean-->
+    <input type="checkbox" v-model="isAgree" value="agree">同意协议
+    {{isAgree}}
+    <hr>
+    <!--多个情况，返回数组-->
+    <input type="checkbox" value="足球" v-model="hobby">足球
+    <input type="checkbox" value="蓝球" v-model="hobby">蓝球
+    <input type="checkbox" value="乒乓球" v-model="hobby">乒乓球
+    {{hobby}}
+    <hr>
+    <!--单个情况-->
+    <select name="fruits" v-model="fruit">
+        <option>香蕉</option>
+        <option>葡萄</option>
+        <option>苹果</option>
+    </select>
+    {{fruit}}
+    <hr>
+    <!--多种情况-->
+    <select name="fruits" v-model="fruits" multiple>
+        <option>香蕉</option>
+        <option>葡萄</option>
+        <option>苹果</option>
+    </select>
+    {{fruits}}
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    let a = new Vue({
+        el: '#app',
+        data: {
+            gender: '男',
+            isAgree: true,
+            hobby: [],
+	        fruit: '香蕉',
+            fruits: []
+        }
+    })
+</script>
+</body>
+</html>

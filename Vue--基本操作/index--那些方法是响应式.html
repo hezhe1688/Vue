@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <!--:key="item"增加性能-->
+        <li v-for="item in names">{{item}}</li>
+    </ul>
+    <button @click="btnClick()">按钮</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+	let a = new Vue({
+		el: '#app',
+		data: {
+			names: ['hezhe', 'xiaohei', 'xiaobai', 'xiaoheihie'],
+			info: {
+				name: 'hezhe',
+				age: '18',
+				height: '1.88'
+			},
+			books: ['大话西游', '寻龙诀', '喜洋洋与灰太狼'],
+			appends: ['熊出没', '小猪佩奇', '洛洛历险记']
+		},
+		methods: {
+			btnClick() {
+				/*下面几个是响应式的方法*/
+				/*1 push 向数组后面追加元素*/
+				// this.names.push('a','b');
+
+				/*2 pop 从后面删除元素*/
+				// this.names.pop();
+
+				//3 shift 从前面删除元素
+				// this.names.shift()
+
+				//4 unshift 向数组前面追加元素
+				// this.names.unshift('a','b','c')
+
+				//5 splice删除增加替换都可以
+				// this.names.splice(1,0,'a','b','b')
+
+				//6 排序
+				// this.names.sort()
+
+				//7 反转
+				// this.names.reverse()
+
+				//这个不是响应式的
+				// this.names[2] = 'aaa'
+			}
+		}
+	})
+</script>
+</body>
+</html>

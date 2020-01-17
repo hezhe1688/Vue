@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <p>{{firstName}}{{lastName}}</p>
+    <p>{{merge}}</p>
+    <p>{{books[0].price + books[1].price+ books[2].price}} </p>
+    <p>{{add}}</p>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+	let a = new Vue({
+		el: '#app',
+		data: {
+			firstName: '贺',
+			lastName: '哲',
+			books: [
+				{id: 1, bookName: '数据结构', price: 100},
+				{id: 2, bookName: '操作系统', price: 120},
+				{id: 3, bookName: '计算机网络', price: 200}
+			]
+		},
+		computed: {
+			//计算属性基本用法
+			merge: function () {
+				return this.firstName + this.lastName
+			},
+			add: function () {
+				let rs = 0;
+				for (let i in this.books) {
+					rs += this.books[i].price;
+				}
+				return rs;
+			}
+		}
+	})
+</script>
+</body>
+</html>

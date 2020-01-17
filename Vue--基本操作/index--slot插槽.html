@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <cpn><span>我是span</span></cpn>
+    <cpn>
+        <button>我是button</button>
+    </cpn>
+    <cpn><i>我是I</i></cpn>
+
+</div>
+<template id="cpn">
+    <div>
+        <p>我是段落</p>
+        <slot></slot>  <!--这个就是插槽，在调用的时候进行使用-->
+    </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+
+	const cpn = {
+		template: '#cpn',
+
+	};
+
+	let a = new Vue({
+		el: '#app',
+		data: {
+			msg: '你好'
+		},
+		components: {
+			cpn
+		}
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <cpn1 :cbooks="books"></cpn1>
+</div>
+<template id="cpn1">
+    <div>
+        <ul>
+            <li v-for="item in cbooks">{{item}}</li>
+        </ul>
+    </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+	const cpn = {
+		template: "#cpn1",
+		props: {
+			cbooks: Array
+		}
+	};
+	let a = new Vue({
+		el: '#app',
+		data: {
+			msg: '你好',
+			books: ['数据结构', '操作系统', '软件工程']
+		},
+		components: {
+			cpn1: cpn
+		}
+	})
+</script>
+</body>
+</html>

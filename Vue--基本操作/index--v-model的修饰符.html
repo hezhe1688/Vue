@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--v-model.lazy：当按下回车或者失去焦点才会触发-->
+    <input type="text" v-model.lazy="msg">
+    {{msg}}
+    <!--v-model.nuber:限定绑定以后是数字类型-->
+    <input type="number" v-model.nuber="number">
+    {{number}}
+    <!--v-model.trim去掉前后空格-->
+    <input type="text" v-model.trim="str">
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    let a = new Vue({
+        el: '#app',
+        data: {
+            msg: '你好',
+	        number: '',
+            str: ''
+        }
+    })
+</script>
+</body>
+</html>

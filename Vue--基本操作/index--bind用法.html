@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .isActive {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--v-bind：用与属性绑定，可以使用简写在属性名前加"："-->
+    <img :src="urlName" alt="">
+    <a :href="baiduUrl">{{msg}}</a>
+</div>
+<div id="div">
+    <p :class="{isActive:isActive}">你好</p>
+    <button id="btn" @click="cclick">按钮</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+	let a = new Vue({
+		el: '#app',
+		data: {
+			msg: '百度一下',
+			urlName: '../img/大G.jpg',
+			baiduUrl: 'http://www.baidu.com'
+		}
+	})
+</script>
+<script>
+	let b = new Vue({
+		el: '#div',
+		data: {
+			isActive: true
+		},
+		methods: {
+			cclick: function () {
+				this.isActive = !this.isActive
+			}
+		}
+	})
+</script>
+</body>
+</html>

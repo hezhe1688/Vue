@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--    当点击切换的时候切换对应的输入方式-->
+    <div v-if="isActive">
+        <label for="username">用户名
+            <input type="text" id="username" placeholder="用户名" >
+        </label>
+    </div>
+    <div v-else="">
+        <label for="email">用户邮箱
+            <input type="email" id="email" placeholder="用户邮箱">
+        </label>
+    </div>
+    <button @click="btnClick()">切换</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    let a = new Vue({
+        el: '#app',
+        data: {
+            msg: '你好',
+	        isActive: true
+        },
+        methods:{
+            btnClick(){
+            	this.isActive = !this.isActive;
+            }
+        }
+    })
+</script>
+</body>
+</html>
