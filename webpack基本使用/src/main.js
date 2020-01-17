@@ -12,11 +12,13 @@ require('./css/css.css');
 
 //依赖Vue
 import Vue from 'vue'
+import App from './vue/App.vue'
 
-const app = new Vue({
+new Vue({
 	el: '#app',
-	data: {
-		msg: '我是你'
+	template: '<App/>',
+	components: {
+		App
 	}
 });
 
