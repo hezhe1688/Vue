@@ -8,7 +8,6 @@ module.exports = {
 		filename: 'bundle.js',
 		publicPath: 'dist/'  //任何带url的都会加上这个文件目录
 	},
-
 	module: {
 		rules: [
 			//配置css
@@ -39,7 +38,14 @@ module.exports = {
 						presets: ['es2015']
 					}
 				}
-			}
+			},
+
 		]
+	},
+	//整合Vue
+	resolve: {
+		alias: {
+			'vue$': 'vue/dist/vue.esm.js'
+		}
 	}
 };

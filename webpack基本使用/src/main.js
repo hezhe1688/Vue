@@ -9,3 +9,14 @@ console.log(mul1);
 
 //依赖css文件
 require('./css/css.css');
+
+//依赖Vue
+import Vue from 'vue'
+
+const app = new Vue({
+	el: '#app',
+	data: {
+		msg: '我是你'
+	}
+});
+

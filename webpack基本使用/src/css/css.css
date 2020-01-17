@@ -1,3 +1,8 @@
 body{
     background: url("../img/bigG.jpg");
 }
+
+#app{
+    font-size: 40px;
+    color: #ffff00;
+}
