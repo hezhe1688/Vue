@@ -11,20 +11,20 @@ const routes = [
 	{
 		path: '/home',
 		component: () => import('../views/Home.vue'),  //懒加载方式，打包之后懒加载
-		children: [
-			{
-				path: '/',
-				redirect: 'homeNews'
-			},
-			{
-				path: 'homeMsg',  //不允许添加斜杆
-				component: () => import('../views/HomeMsg.vue')
-			},
-			{
-				path: 'homeNews',
-				component: () => import('../views/HomeNews.vue')
-			}
-		]
+		// children: [
+		// 	{
+		// 		path: '/',
+		// 		redirect: 'homeNews'
+		// 	},
+		// 	{
+		// 		path: 'homeMsg',  //不允许添加斜杆
+		// 		component: () => import('../views/HomeMsg.vue')
+		// 	},
+		// 	{
+		// 		path: 'homeNews',
+		// 		component: () => import('../views/HomeNews.vue')
+		// 	}
+		// ]
 	},
 	{
 		path: '/about',
@@ -33,7 +33,12 @@ const routes = [
 	{
 		path: '/user/:userId',
 		component: () => import('../views/User.vue')
+	},
+	{
+		path: '/profile',
+		component: () => import('../views/Profile.vue')
 	}
+
 ]
 
 const router = new VueRouter({

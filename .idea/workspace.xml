@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63fbdae7-7c04-4601-b183-815d92bdab6e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/vuecli/src/views/User.vue" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/vuecli/src/views/Profile.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vuecli/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuecli/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vuecli/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vuecli/src/router/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -14,7 +17,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/vuecli/src/views/Profile.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="11" column="13" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="11" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -36,8 +49,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Vue--数据显示/index.html" />
-        <option value="$PROJECT_DIR$/Vue--基本操作/index--列表展示.html" />
         <option value="$PROJECT_DIR$/Vue--基本操作/index--计数器.html" />
         <option value="$PROJECT_DIR$/Vue--基本操作/index--bind用法.html" />
         <option value="$PROJECT_DIR$/Vue--基本操作/index--bind数组语法.html" />
@@ -81,12 +92,14 @@
         <option value="$PROJECT_DIR$/webpack基本使用/src/aa.js" />
         <option value="$PROJECT_DIR$/webpack基本使用/src/main.js" />
         <option value="$PROJECT_DIR$/vuecli/src/views/About.vue" />
-        <option value="$PROJECT_DIR$/vuecli/src/App.vue" />
         <option value="$PROJECT_DIR$/vuecli/src/views/User.vue" />
         <option value="$PROJECT_DIR$/vuecli/src/views/HomeNews.vue" />
         <option value="$PROJECT_DIR$/vuecli/src/views/HomeMsg.vue" />
         <option value="$PROJECT_DIR$/vuecli/src/views/Home.vue" />
+        <option value="$PROJECT_DIR$/vuecli/src/views/profile.vue" />
         <option value="$PROJECT_DIR$/vuecli/src/router/index.js" />
+        <option value="$PROJECT_DIR$/vuecli/src/views/Profile.vue" />
+        <option value="$PROJECT_DIR$/vuecli/src/App.vue" />
       </list>
     </option>
   </component>
@@ -206,7 +219,7 @@
       <workItem from="1579241187128" duration="15000" />
       <workItem from="1579241238208" duration="7419000" />
       <workItem from="1579413351931" duration="8349000" />
-      <workItem from="1579482097658" duration="332000" />
+      <workItem from="1579482097658" duration="2083000" />
     </task>
     <task id="LOCAL-00001" summary="webpack配置">
       <created>1579241394967</created>
@@ -250,14 +263,22 @@
       <option name="project" value="LOCAL" />
       <updated>1579426783267</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="测试">
+      <created>1579482537007</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1579482537007</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45629000" />
+    <option name="totallyTimeSpent" value="47380000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="823" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23537703" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -270,7 +291,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32968536" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.4487004" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
@@ -308,20 +329,14 @@
     <MESSAGE value="配置router" />
     <MESSAGE value="动态路由" />
     <MESSAGE value="嵌套路由" />
-    <option name="LAST_COMMIT_MESSAGE" value="嵌套路由" />
+    <MESSAGE value="测试" />
+    <option name="LAST_COMMIT_MESSAGE" value="测试" />
   </component>
   <component name="XPathView.XPathProjectComponent">
     <history />
     <find-history />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Vue--基本操作/index--数据显示.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" column="40" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Vue--基本操作/index--列表展示.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
@@ -550,13 +565,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vuecli/src/App.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vuecli/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -588,20 +596,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vuecli/src/views/User.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="11" lean-forward="true" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vuecli/src/router/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-261">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        <state relative-caret-position="317">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vuecli/src/views/User.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="23" lean-forward="true" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vuecli/src/App.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="49" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vuecli/src/views/Profile.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="13" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
