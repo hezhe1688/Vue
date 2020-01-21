@@ -6,7 +6,10 @@
     <router-link :to="'/user/'+userId" tag="button">用户</router-link>
     <!--对象传递 query 以问号形式-->
     <router-link :to="{path: '/profile',query: {name:'hezhe',age:'18'}}" tag="button">档案</router-link>
-    <router-view></router-view>
+    <!--将组件缓存起来-->
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
