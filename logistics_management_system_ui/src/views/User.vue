@@ -105,6 +105,7 @@
 				let that = this;
 				request({
                     url: '/delUserById',
+                    method: 'delete',
 					params: {
                     	ids: that.multipleSelection
                     },

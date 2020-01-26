@@ -5,13 +5,17 @@ Vue.use(VueRouter)
 
 const routes = [
 	{
-		path: '/user',
-		component: () => import('../views/User.vue'),
+		path: '/',
+		component: () => import('../views/Main.vue'),
+		children: [{
+			path: '/consumer',
+			component: () => import('../views/system_management/Consumer.vue'),
+		}]
 	},
-	{
-		path: '/adduser',
-		component: () => import('../views/AddUser.vue')
-	}
+	// 	// {
+	// 	// 	path: '/adduser',
+	// 	// 	component: () => import('../views/AddUser.vue')
+	// 	// }
 
 ]
 
