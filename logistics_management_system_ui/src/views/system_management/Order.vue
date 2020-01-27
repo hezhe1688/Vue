@@ -4,27 +4,43 @@
             <el-card class="box-card" style="width: 1200px;">
                 <el-row :gutter="100">
                     <el-col :span="2">
-                        <el-button @click="consumer_showDialog()" type="primary" plain>添加用户</el-button>
+                        <el-button @click="order_showDialog()" type="primary" plain>新增订单</el-button>
                     </el-col>
                     <el-col :span="2">
-                        <el-button @click="consumer_toggleSelection()" type="warning" plain>取消操作</el-button>
+                        <el-button @click="order_toggleSelection()" type="warning" plain>取消操作</el-button>
                     </el-col>
                     <el-col :span="2">
-                        <el-button @click="consumer_delClick()" type="danger" plain>批量删除</el-button>
+                        <el-button @click="order_delClick()" type="danger" plain>批量删除</el-button>
                     </el-col>
-                    <el-col :span="6" style="margin-left: 520px">
+                    <el-col :span="4">
+                        <el-date-picker
+                                v-model="dataSearchInput"
+                                type="daterange"
+                                align="right"
+                                unlink-panels
+                                range-separator="至"
+                                start-placeholder="开始日期"
+                                end-placeholder="结束日期"
+                                :picker-options="dataPickerOptions">
+                        </el-date-picker>
+                    </el-col>
+                    <el-col :span="3" style="margin-left: 145px">
+                        <el-button @click="order_dataSearchBtn()" type="success" plain>日期搜索订单</el-button>
+                    </el-col>
+                    <el-col :span="6">
                         <el-input
-                                placeholder="输入客户名称查询"
+                                placeholder="输入订单ID查询"
                                 clearable
                                 prefix-icon="el-icon-search"
-                                v-model="consumer_searchInput">
+                                v-model="order_searchInput">
                         </el-input>
                     </el-col>
-                    <el-col :span="2" style="margin-left: -90px">
-                        <el-button @click="consumer_searchBtn()" type="success" plain>搜索客户</el-button>
+                    <el-col :span="3" style="margin-left: -90px">
+                        <el-button @click="order_searchBtn()" type="success" plain>搜索订单</el-button>
                     </el-col>
                 </el-row>
                 <el-table
+
                         @selection-change="handleSelectionChange"
                         ref="multipleTable"
                         :data="tableData"
@@ -41,43 +57,43 @@
                             fixed
                             sortable
                             prop="id"
-                            label="用户ID"
+                            label="订单ID"
+                    >
+                    </el-table-column>
+                    <el-table-column
+                            prop="shippersName"
+                            label="发货人姓名"
                             width="110">
                     </el-table-column>
                     <el-table-column
-                            prop="consumerName"
-                            label="客户名称"
-                            width="110">
-                    </el-table-column>
-                    <el-table-column
-                            prop="consumerPassword"
-                            label="客户密码"
+                            prop="shippersAddress"
+                            label="发货人地址"
                             width="160">
                     </el-table-column>
                     <el-table-column
-                            prop="gender"
-                            label="客户性别"
+                            prop="shippersTel"
+                            label="发货人电话"
+                            width="100">
+                    </el-table-column>
+                    <el-table-column
+                            prop="recipientName"
+                            label="收件人姓名"
                             width="110">
                     </el-table-column>
                     <el-table-column
-                            prop="age"
-                            label="客户年龄"
-                            width="110">
-                    </el-table-column>
-                    <el-table-column
-                            prop="email"
-                            label="客户邮箱"
+                            prop="recipientAddress"
+                            label="收件人地址"
                             width="160">
                     </el-table-column>
                     <el-table-column
-                            prop="state"
-                            label="状态"
+                            prop="recipientTel"
+                            label="收件人电话"
+                            width="100">
+                    </el-table-column>
+                    <el-table-column
+                            prop="orderData"
+                            label="订单日期"
                             width="90">
-                    </el-table-column>
-                    <el-table-column
-                            prop="registrationDate"
-                            label="注册日期"
-                            width="110">
                     </el-table-column>
                     <el-table-column
                             label="操作"
@@ -85,17 +101,16 @@
                         <template slot-scope="scope">
                             <el-button
                                     size="mini"
-                                    @click="consumer_handle(scope.$index, scope.row)">编辑
+                                    @click="order_handle(scope.$index, scope.row)">编辑
                             </el-button>
                             <el-button
                                     size="mini"
                                     type="danger"
-                                    @click="consumer_handleDelete(scope.$index, scope.row)">删除
+                                    @click="order_handleDelete(scope.$index, scope.row)">删除
                             </el-button>
                         </template>
                     </el-table-column>
                 </el-table>
-
             </el-card>
             <!--分页组件-->
             <div class="block">
@@ -110,36 +125,35 @@
                 </el-pagination>
             </div>
         </template>
-        <!--新增数据对话框-->
+        <!--新增订单对话框-->
         <el-dialog
-                title="新增数据"
+                title="新增订单"
                 :visible.sync="dialogVisible"
                 width="500px"
                 destroy-on-close
                 :before-close="handleClose">
-            <el-form :rules="rules" ref="consumer" :model="consumer" label-width="80px">
-                <el-form-item label="客户名称" prop="consumerName">
-                    <el-input v-model="consumer.consumerName"></el-input>
+            <el-form :rules="rules" ref="order" :model="order" label-width="100px">
+                <el-form-item label="发货人姓名" prop="shippersName">
+                    <el-input v-model="order.shippersName"></el-input>
                 </el-form-item>
-                <el-form-item label="客户密码" prop="consumerPassword">
-                    <el-input v-model="consumer.consumerPassword"></el-input>
+                <el-form-item label="发货人地址" prop="shippersAddress">
+                    <el-input v-model="order.shippersAddress"></el-input>
                 </el-form-item>
-                <el-form-item label="客户性别" prop="gender">
-                    <el-radio v-model="consumer.gender" label="男">男</el-radio>
-                    <el-radio v-model="consumer.gender" label="女">女</el-radio>
+                <el-form-item label="发货人电话" prop="shippersTel">
+                    <el-input v-model="order.shippersTel"></el-input>
                 </el-form-item>
-                <el-form-item label="客户年龄" prop="age">
-                    <el-input v-model="consumer.age"></el-input>
+                <el-form-item label="收件人姓名" prop="recipientName">
+                    <el-input v-model="order.recipientName"></el-input>
                 </el-form-item>
-                <el-form-item label="客户邮箱" prop="email">
-                    <el-input v-model="consumer.email"></el-input>
+                <el-form-item label="收件人地址" prop="recipientAddress">
+                    <el-input v-model="order.recipientAddress"></el-input>
                 </el-form-item>
-                <el-form-item label="客户状态" prop="state">
-                    <el-input v-model="consumer.state"></el-input>
+                <el-form-item label="收件人电话" prop="recipientTel">
+                    <el-input v-model="order.recipientTel"></el-input>
                 </el-form-item>
-                <el-form-item label="注册日期" prop="registrationDate">
+                <el-form-item label="订单日期" prop="orderData">
                     <el-date-picker
-                            v-model="consumer.registrationDate"
+                            v-model="order.orderData"
                             align="right"
                             type="date"
                             placeholder="选择日期"
@@ -149,42 +163,38 @@
             </el-form>
             <span slot="footer" class="dialog-footer">
                 <el-button @click="addCancel()">取 消</el-button>
-                <el-button type="primary" @click="consumer_addData('consumer')">新 增</el-button>
+                <el-button type="primary" @click="order_addData('order')">新 增</el-button>
             </span>
         </el-dialog>
-        <!--修改数据对话框-->
+        <!--修改订单对话框-->
         <el-dialog
-                title="修改数据"
+                title="修改订单"
                 :visible.sync="editDialogVisible"
                 width="500px"
                 destroy-on-close
                 :before-close="handleClose">
-            <el-form :rules="rules" ref="consumer" :model="consumer" label-width="80px">
-                <el-form-item label="客户id">
-                    <el-input :disabled="true" v-model="consumer.id"></el-input>
+            <el-form :rules="rules" ref="order" :model="order" label-width="100px">
+                <el-form-item label="发货人姓名" prop="shippersName">
+                    <el-input v-model="order.shippersName"></el-input>
                 </el-form-item>
-                <el-form-item label="客户名称" prop="consumerName">
-                    <el-input v-model="consumer.consumerName"></el-input>
+                <el-form-item label="发货人地址" prop="shippersAddress">
+                    <el-input v-model="order.shippersAddress"></el-input>
                 </el-form-item>
-                <el-form-item label="客户密码" prop="consumerPassword">
-                    <el-input v-model="consumer.consumerPassword"></el-input>
+                <el-form-item label="发货人电话" prop="shippersTel">
+                    <el-input v-model="order.shippersTel"></el-input>
                 </el-form-item>
-                <el-form-item label="客户性别" prop="gender">
-                    <el-radio v-model="consumer.gender" label="男">男</el-radio>
-                    <el-radio v-model="consumer.gender" label="女">女</el-radio>
+                <el-form-item label="收件人姓名" prop="recipientName">
+                    <el-input v-model="order.recipientName"></el-input>
                 </el-form-item>
-                <el-form-item label="客户年龄" prop="age">
-                    <el-input v-model="consumer.age"></el-input>
+                <el-form-item label="收件人地址" prop="recipientAddress">
+                    <el-input v-model="order.recipientAddress"></el-input>
                 </el-form-item>
-                <el-form-item label="客户邮箱" prop="email">
-                    <el-input v-model="consumer.email"></el-input>
+                <el-form-item label="收件人电话" prop="recipientTel">
+                    <el-input v-model="order.recipientTel"></el-input>
                 </el-form-item>
-                <el-form-item label="客户状态" prop="state">
-                    <el-input v-model="consumer.state"></el-input>
-                </el-form-item>
-                <el-form-item label="注册日期" prop="registrationDate">
+                <el-form-item label="订单日期" prop="orderData">
                     <el-date-picker
-                            v-model="consumer.registrationDate"
+                            v-model="order.orderData"
                             align="right"
                             type="date"
                             placeholder="选择日期"
@@ -194,7 +204,7 @@
             </el-form>
             <span slot="footer" class="dialog-footer">
                 <el-button @click="editCancel()">取 消</el-button>
-                <el-button type="primary" @click="consumer_editData('consumer')">修 改</el-button>
+                <el-button type="primary" @click="order_editData('order')">修 改</el-button>
             </span>
         </el-dialog>
     </div>
@@ -205,31 +215,32 @@
 	import qs from 'qs'
 
 	export default {
-		name: "Consumer",
+		name: "Order",
 		data() {
 			return {
-				consumer: {
+				order: {
 					id: '',
-					consumerName: '',
-					consumerPassword: '',
-					gender: '',
-					age: '',
-					email: '',
-					state: '',
-					registrationDate: ''
+					shippersName: '',
+					shippersAddress: '',
+					shippersTel: '',
+					recipientName: '',
+					recipientAddress: '',
+					recipientTel: '',
+					orderData: ''
 				},
-				tableData: [],
-				multipleSelection: [],
+				tableData: [],  //所有数据
+				multipleSelection: [], //多选数组
 				ids: [], //批量删除ids
-				pageSizes: [8, 10, 15, 20, 25, 30],
+				pageSizes: [6, 10, 15, 20, 25, 30],
 				currentPage: 1, //当前页
-				pageSize: 8,    //pageSizes中的选项
+				pageSize: 6,  //pageSizes中的选项
 				total: 0, //总条数
-				consumer_searchInput: '',  //搜索框输入的值
+				order_searchInput: '',  //搜索框输入的值
 				loading: true,  //数据加载
 				dialogVisible: false,  //新增对话框
 				editDialogVisible: false,  //修改对话框
-				//选择日期
+				dataSearchInput: '', //日期范围选择框
+				//新增修改中快速选择日期
 				pickerOptions: {
 					disabledDate(time) {
 						return time.getTime() > Date.now();
@@ -253,17 +264,47 @@
 							date.setTime(date.getTime() - 3600 * 1000 * 24 * 7);
 							picker.$emit('pick', date);
 						}
+					}],
+				},
+				//按日期查询快速选择
+				dataPickerOptions: {
+					shortcuts: [{
+						text: '最近一周',
+						onClick(picker) {
+							const end = new Date();
+							const start = new Date();
+							start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+							picker.$emit('pick', [start, end]);
+						}
+					}, {
+						text: '最近一个月',
+						onClick(picker) {
+							const end = new Date();
+							const start = new Date();
+							start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+							picker.$emit('pick', [start, end]);
+						}
+					}, {
+						text: '最近三个月',
+						onClick(picker) {
+							const end = new Date();
+							const start = new Date();
+							start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+							picker.$emit('pick', [start, end]);
+						}
 					}]
 				},
 				//新增数据进行校验
 				rules: {
-					consumerName: {required: true, message: '请输入用户名称', trigger: 'blur'},
-					consumerPassword: {required: true, message: '请输入密码', trigger: 'blur'},
-					gender: {required: true, message: '请选择性别', trigger: 'blur'},
-					age: {required: true, message: '请输入年龄', trigger: 'blur'},
-					email: {required: true, message: '请正确输入邮箱格式', type: 'email', trigger: 'blur'},
-					state: {required: true, message: '请输入状态0（禁用）1（启用）', trigger: 'blur'},
-					registrationDate: {type: 'date', required: true, message: '请选择时间', trigger: 'blur'}
+					shippersName: {required: true, message: '请输入发货人姓名', trigger: 'blur'},
+					shippersAddress: {required: true, message: '请输入发货人地址', trigger: 'blur'},
+					shippersTel: [{required: true, message: '请选择发货人电话', trigger: 'blur'},
+						{type: "string", message: '请输入11位有效电话号码', required: true, len: 11, max: 11}],
+					recipientName: {required: true, message: '请输入收件人姓名', trigger: 'blur'},
+					recipientAddress: {required: true, message: '请输入收件人地址', trigger: 'blur'},
+					recipientTel: [{required: true, message: '请输入收件人电话', trigger: 'blur'},
+						{type: "string", message: '请输入11位有效电话号码', required: true, len: 11, max: 11}],
+					orderData: {type: 'date', required: true, message: '请输入订单日期', trigger: 'blur'}
 				}
 			}
 		},
@@ -276,7 +317,7 @@
 			getAllData() {
 				let that = this;
 				request({
-					url: '/getAllConsumerPage',
+					url: '/getAllPageOrder',
 					method: 'get',
 					params: {
 						currentPage: this.currentPage,
@@ -299,16 +340,17 @@
 				this.currentPage = currentPage;
 				this.getAllData();
 			},
+
 			//根据客户名称模糊查询
-			consumer_searchBtn() {
+			order_searchBtn() {
 				let that = this;
 				request({
-					url: '/getConsumerByName',
+					url: '/getOrderByName',
 					method: 'get',
 					params: {
 						currentPage: this.currentPage,
 						pageSize: this.pageSize,
-						consumerLikeName: that.consumer_searchInput
+						orderLikeName: that.order_searchInput
 					}
 				}).then(res => {
 					if (res != null) {
@@ -318,13 +360,43 @@
 							message: '数据查询成功',
 							type: 'success'
 						});
-						that.consumer_searchInput = ''
+						that.order_searchInput = ''
 					}
 					that.tableData = res.data.list;
 					that.total = res.data.total;
 					that.currentPage = res.data.pageNum;
 				})
 			},
+
+			//通过筛选日期进行范围查询
+			order_dataSearchBtn() {
+				let that = this;
+				if (that.dataSearchInput.length !== 0) {  //当没有选择日期的时候就不发送查询请求
+					request({
+						url: '/searchDataByDate',
+						method: 'get',
+						params: {
+							currentPage: this.currentPage,
+							pageSize: this.pageSize,
+							dataSearch: that.dataSearchInput
+						}
+					}).then(res => {
+						if (res != null) {
+							that.loading = false;
+							this.$notify({
+								title: '成功',
+								message: '数据查询成功',
+								type: 'success'
+							});
+							that.dataSearchInput = ''
+						}
+						that.tableData = res.data.list;
+						that.total = res.data.total;
+						that.currentPage = res.data.pageNum;
+					})
+				}
+			},
+
 			//选择行
 			handleSelectionChange(selections) {
 				let that = this;
@@ -335,12 +407,12 @@
 				that.multipleSelection = Array.from(new Set(that.multipleSelection));
 			},
 			//取消选择并且清空数组
-			consumer_toggleSelection() {
+			order_toggleSelection() {
 				this.$refs.multipleTable.clearSelection();
 				this.multipleSelection = []
 			},
 			//批量删除
-			consumer_delClick() {
+			order_delClick() {
 				if (this.multipleSelection.length !== 0) {
 					this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
 						confirmButtonText: '确定',
@@ -349,7 +421,7 @@
 					}).then(() => {
 						let that = this;
 						request({
-							url: '/delBatchConsumerById',
+							url: '/delBatchOrderById',
 							method: 'delete',
 							params: {
 								ids: that.multipleSelection
@@ -376,40 +448,40 @@
 				}
 			},
 			//进入修改界面并绑定数据
-			consumer_handle(index, row) {
+			order_handle(index, row) {
 				this.editDialogVisible = true;
-				this.consumer = row;
+				this.order = row;
 			},
 
 			//修改数据
-			consumer_editData(formName) {
+			order_editData(formName) {
 				let that = this;
 				const data = {
-					id: that.consumer.id,
-					consumerName: that.consumer.consumerName,
-					consumerPassword: that.consumer.consumerPassword,
-					gender: that.consumer.gender,
-					age: that.consumer.age,
-					email: that.consumer.email,
-					state: that.consumer.state,
-					registrationDate: new Date(that.consumer.registrationDate).toLocaleDateString().replace(/\//g, '-'),
+					id: that.order.id,
+					shippersName: that.order.shippersName,
+					shippersAddress: that.order.shippersAddress,
+					shippersTel: that.order.shippersTel,
+					recipientName: that.order.recipientName,
+					recipientAddress: that.order.recipientAddress,
+					recipientTel: that.order.recipientTel,
+					orderData: new Date(that.order.orderData).toLocaleDateString().replace(/\//g, '-'),
 				};
 				this.$refs[formName].validate((valid) => {
 					if (valid) {
 						request({
-							url: '/consumerEditData',
+							url: '/orderEditData',
 							method: 'put',
 							data: qs.stringify(data),
 						}).then(res => {
 							if (res !== 0) {
+								this.editDialogVisible = false;
+								this.order = {};
+								this.getAllData();
 								this.$notify({
 									title: '成功',
 									message: '修改成功',
 									type: 'success'
 								});
-								this.editDialogVisible = false;
-								this.consumer = {};
-								this.getAllData();
 							}
 						}).catch(res => {
 							this.$notify({
@@ -427,15 +499,17 @@
 					}
 				});
 			},
+
 			//点击修改的取消按钮
 			editCancel() {
 				this.editDialogVisible = false;
-				this.consumer = {};
+				this.order = {};
 			},
+
 			//单条记录删除
-			consumer_handleDelete(index, row) {
+			order_handleDelete(index, row) {
 				request({
-					url: '/delConsumerById',
+					url: '/deleteOrderById',
 					method: 'delete',
 					params: {
 						id: row.id
@@ -456,35 +530,37 @@
 					});
 				})
 			},
+
 			//打开新增对话框数据
-			consumer_showDialog() {
+			order_showDialog() {
 				this.dialogVisible = true;
 			},
 			handleClose(done) {
 				this.$confirm('确认关闭？')
 					.then(_ => {
 						done();
-						this.consumer = {}; //当点击编辑按钮关掉以后仍然有数据绑定
+						this.order = {}; //当点击编辑按钮关掉以后仍然有数据绑定
 					})
 					.catch(_ => {
 					});
 			},
+
 			//新增数据
-			consumer_addData(formName) {
+			order_addData(formName) {
 				let that = this;
 				const data = {
-					consumerName: that.consumer.consumerName,
-					consumerPassword: that.consumer.consumerPassword,
-					gender: that.consumer.gender,
-					age: that.consumer.age,
-					email: that.consumer.email,
-					state: that.consumer.state,
-					registrationDate: that.consumer.registrationDate,
+					shippersName: that.order.shippersName,
+					shippersAddress: that.order.shippersAddress,
+					shippersTel: that.order.shippersTel,
+					recipientName: that.order.recipientName,
+					recipientAddress: that.order.recipientAddress,
+					recipientTel: that.order.recipientTel,
+					orderData: that.order.orderData,
 				};
 				this.$refs[formName].validate((valid) => {
 					if (valid) {
 						request({
-							url: '/insertConsumer',
+							url: '/insertOrder',
 							method: 'post',
 							data: qs.stringify(data),
 						}).then(res => {
@@ -495,7 +571,7 @@
 									type: 'success'
 								});
 								this.dialogVisible = false;
-								this.consumer = {};
+								this.order = {};
 								this.getAllData();
 							}
 						}).catch(res => {
@@ -517,7 +593,7 @@
 			//新增取消按钮
 			addCancel() {
 				this.dialogVisible = false;
-				this.consumer = {};
+				this.order = {};
 			}
 		}
 	}

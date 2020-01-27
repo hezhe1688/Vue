@@ -17,7 +17,7 @@
                             <i class="el-icon-coordinate"></i>
                             <span slot="title">客户管理</span>
                         </el-menu-item>
-                        <el-menu-item index="3-2">
+                        <el-menu-item index="/order">
                             <i class="el-icon-shopping-cart-2"></i>
                             <span slot="title">订单管理</span>
                         </el-menu-item>
