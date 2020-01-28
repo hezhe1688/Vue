@@ -19,7 +19,7 @@ const routes = [
 			{
 				path: '/product',
 				component: () => import('../views/system_management/Product.vue')
-			}
+			},
 		]
 	},
 ]

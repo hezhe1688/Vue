@@ -55,11 +55,15 @@
                     </el-submenu>
                     <el-submenu index="5">
                         <template slot="title"><i class="el-icon-cpu"></i>系统监控</template>
+                        <el-menu-item index="/swagger-ui.html#/">
+                            <i class="el-icon-link"></i>
+                            <span slot="title">Swagger2接口文档</span>
+                        </el-menu-item>
                         <el-menu-item index="5-1">
                             <i class="el-icon-orange"></i>
                             <span slot="title">在线用户</span>
                         </el-menu-item>
-                        <el-menu-item index="5-2">
+                        <el-menu-item index="druid/index.html">
                             <i class="el-icon-wallet"></i>
                             <span slot="title">SQL监控</span>
                         </el-menu-item>
