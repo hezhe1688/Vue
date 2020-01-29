@@ -94,6 +94,7 @@
             <!--分页组件-->
             <div class="block">
                 <el-pagination
+                        background
                         @size-change="handleSizeChange"
                         @current-change="handleCurrentChange"
                         :current-page="currentPage"
@@ -224,8 +225,9 @@
 					that.currentPage = res.data.pageNum;
 				})
 			},
-			handleSizeChange() {
-
+			handleSizeChange(val){
+				this.pageSize = val;
+				this.getAllData(val)
 			},
 			//分页中点击上一页，下一页的时候使用
 			handleCurrentChange(currentPage) {
@@ -403,7 +405,7 @@
 			addCancel() {
 				this.dialogVisible = false;
 				this.warehouse = {};
-			}
+			},
 		}
 	}
 </script>

@@ -4,7 +4,7 @@
             <el-card class="box-card" style="width: 1200px;">
                 <el-row :gutter="100">
                     <el-col :span="2">
-                        <el-button @click="product_showDialog()" type="primary" plain>新增订单</el-button>
+                        <el-button @click="product_showDialog()" type="primary" plain>新增产品</el-button>
                     </el-col>
                     <el-col :span="2">
                         <el-button @click="product_toggleSelection()" type="warning" plain>取消操作</el-button>
@@ -21,7 +21,7 @@
                         </el-input>
                     </el-col>
                     <el-col :span="3" style="margin-left: -90px">
-                        <el-button @click="product_searchBtn()" type="success" plain>搜索订单</el-button>
+                        <el-button @click="product_searchBtn()" type="success" plain>搜索产品</el-button>
                     </el-col>
                 </el-row>
                 <el-table
@@ -85,6 +85,7 @@
             <!--分页组件-->
             <div class="block">
                 <el-pagination
+                        background
                         @size-change="handleSizeChange"
                         @current-change="handleCurrentChange"
                         :current-page="currentPage"
@@ -130,9 +131,9 @@
                 <el-button type="primary" @click="product_addData('product')">新 增</el-button>
             </span>
         </el-dialog>
-        <!--修改订单对话框-->
+        <!--修改产品对话框-->
         <el-dialog
-                title="修改订单"
+                title="修改产品"
                 :visible.sync="editDialogVisible"
                 width="500px"
                 destroy-on-close
@@ -267,8 +268,9 @@
 					that.currentPage = res.data.pageNum;
 				})
 			},
-			handleSizeChange() {
-
+			handleSizeChange(val){
+				this.pageSize = val;
+				this.getAllData(val)
 			},
 			//分页中点击上一页，下一页的时候使用
 			handleCurrentChange(currentPage) {

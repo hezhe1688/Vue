@@ -12,7 +12,11 @@
                     <el-col :span="2">
                         <el-button @click="consumer_delClick()" type="danger" plain>批量删除</el-button>
                     </el-col>
-                    <el-col :span="6" style="margin-left: 520px">
+                    <el-col :span="2">
+                        <el-button @click="exportExcel()" type="info" plain>文件导出</el-button>
+                    </el-col>
+
+                    <el-col :span="6">
                         <el-input
                                 placeholder="输入客户名称查询"
                                 clearable
@@ -26,12 +30,14 @@
                 </el-row>
                 <el-table
                         @selection-change="handleSelectionChange"
+                        @size-change="handleSizeChange"
                         ref="multipleTable"
                         :data="tableData"
                         v-loading="loading"
                         element-loading-text="数据加载中，请稍等"
                         tooltip-effect="dark"
                         stripe
+                        id="out-table"
                         style="width: 1200px;margin-top: 10px">
                     <el-table-column
                             type="selection"
@@ -101,6 +107,7 @@
             <!--分页组件-->
             <div class="block">
                 <el-pagination
+                        background
                         @size-change="handleSizeChange"
                         @current-change="handleCurrentChange"
                         :current-page="currentPage"
@@ -204,6 +211,8 @@
 <script>
 	import {request} from '../../network/request.js'
 	import qs from 'qs'
+	import FileSaver from "file-saver";
+	import XLSX from "xlsx";
 
 	export default {
 		name: "Consumer",
@@ -292,8 +301,10 @@
 					that.currentPage = res.data.pageNum;
 				})
 			},
-			handleSizeChange() {
-
+            //受Redis缓存的影响，有待进一步优化和改进
+			handleSizeChange(val){
+				this.pageSize = val;
+				this.getAllData(val)
 			},
 			//分页中点击上一页，下一页的时候使用
 			handleCurrentChange(currentPage) {
@@ -520,8 +531,35 @@
 				this.dialogVisible = false;
 				this.consumer = {};
 			},
+			//格式化状态
 			formatterState(row, column) {
 				return row.state == '1' ? "激活状态" : row.state == '0' ? "禁用状态" : "";
+			},
+			//导出EXECL文件
+			exportExcel() {
+				/* 从表生成工作簿对象 */
+				var wb = XLSX.utils.table_to_book(document.querySelector("#out-table"));
+				/* 获取二进制字符串作为输出 */
+				var wbout = XLSX.write(wb, {
+					bookType: "xlsx",
+					bookSST: true,
+					type: "array"
+				});
+				console.log('ll');
+				try {
+					FileSaver.saveAs(
+						//Blob 对象表示一个不可变、原始数据的类文件对象。
+						//Blob 表示的不一定是JavaScript原生格式的数据。
+						//File 接口基于Blob，继承了 blob 的功能并将其扩展使其支持用户系统上的文件。
+						//返回一个新创建的 Blob 对象，其内容由参数中给定的数组串联组成。
+						new Blob([wbout], {type: "application/octet-stream"}),
+						//设置导出文件名称
+						 "客户表.xlsx"
+					);
+				} catch (e) {
+					if (typeof console !== "undefined") console.log(e, wbout);
+				}
+				return wbout;
 			}
 		}
 	}
