@@ -70,6 +70,7 @@
                             width="160">
                     </el-table-column>
                     <el-table-column
+                            :formatter="formatterState"
                             prop="state"
                             label="状态"
                             width="90">
@@ -518,6 +519,9 @@
 			addCancel() {
 				this.dialogVisible = false;
 				this.consumer = {};
+			},
+			formatterState(row, column) {
+				return row.state == '1' ? "激活状态" : row.state == '0' ? "禁用状态" : "";
 			}
 		}
 	}

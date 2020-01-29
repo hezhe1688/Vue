@@ -25,7 +25,7 @@
                             <i class="el-icon-present"></i>
                             <span slot="title">产品管理</span>
                         </el-menu-item>
-                        <el-menu-item index="3-4">
+                        <el-menu-item index="/warehouse">
                             <i class="el-icon-coin"></i>
                             <span slot="title">仓库管理</span>
                         </el-menu-item>
@@ -63,7 +63,7 @@
                             <i class="el-icon-orange"></i>
                             <span slot="title">在线用户</span>
                         </el-menu-item>
-                        <el-menu-item index="druid/index.html">
+                        <el-menu-item index=" lsdruid/index.html">
                             <i class="el-icon-wallet"></i>
                             <span slot="title">SQL监控</span>
                         </el-menu-item>
@@ -129,7 +129,7 @@
                                 <el-dropdown-item>删除</el-dropdown-item>
                             </el-dropdown-menu>
                         </el-dropdown>
-                        <el-avatar> 贺哲 </el-avatar>
+                        <el-avatar shape="square" :size="50" >贺 哲</el-avatar>
                     </span>
                     <el-divider></el-divider>
                 </el-header>
