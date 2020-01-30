@@ -22,7 +22,11 @@ const routes = [
 			},
 			{
 				path: '/warehouse',
-				component: () => import('../views/system_monitoring/Warehouse.vue')
+				component: () => import('../views/system_management/Warehouse.vue')
+			},
+			{
+				path: '/deliveryStaff',
+				component: () => import('../views/system_management/DeliveryStaff.vue')
 			},
 		]
 	},
