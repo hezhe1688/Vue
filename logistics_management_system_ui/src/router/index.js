@@ -32,6 +32,10 @@ const routes = [
 				path: '/automobile',
 				component: () => import('../views/system_management/Automobile.vue')
 			},
+			{
+				path: '/user',
+				component: () => import('../views/access_control/User.vue')
+			},
 		]
 	},
 ]

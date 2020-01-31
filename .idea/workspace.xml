@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63fbdae7-7c04-4601-b183-815d92bdab6e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/logistics_management_system_ui/src/views/system_management/Automobile.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics_management_system_ui/src/views/access_control/User.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logistics_management_system_ui/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/logistics_management_system_ui/src/router/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logistics_management_system_ui/src/views/Main.vue" beforeDir="false" afterPath="$PROJECT_DIR$/logistics_management_system_ui/src/views/Main.vue" afterDir="false" />
@@ -17,17 +17,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/logistics_management_system_ui/src/views/system_management/Automobile.vue">
+        <entry file="file://$PROJECT_DIR$/logistics_management_system_ui/src/views/Main.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="190" lean-forward="true" selection-start-line="190" selection-end-line="190" />
+            <state relative-caret-position="499">
+              <caret line="65" column="45" lean-forward="true" selection-start-line="65" selection-start-column="45" selection-end-line="65" selection-end-column="45" />
               <folding>
-                <element signature="n#style#0;n#el-col#1;n#el-row#0;n#el-card#0;n#template#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#el-table#0;n#el-card#0;n#template#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#el-dialog#0;n#div#0;n#template#0;n#!!top" />
-                <element signature="e#5150#5198#0" expanded="true" />
+                <element signature="n#style#0;n#el-aside#0;n#el-container#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#el-dropdown#0;n#span#1;n#el-header#0;n#el-container#0;n#el-container#0;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -55,10 +53,10 @@
       <find>orderLikeName</find>
       <find>dataSearchInput</find>
       <find>order</find>
-      <find>warehouse</find>
       <find>product</find>
       <find>deliveryStaff</find>
       <find>consumer</find>
+      <find>warehouse</find>
     </findStrings>
     <replaceStrings>
       <replace>order</replace>
@@ -66,6 +64,7 @@
       <replace>warehouse</replace>
       <replace>deliveryStaff</replace>
       <replace>automobile</replace>
+      <replace>user</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -76,7 +75,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ES6导入导出/index.js" />
         <option value="$PROJECT_DIR$/ES6导入导出/main.js" />
         <option value="$PROJECT_DIR$/ES6导入导出/other.js" />
         <option value="$PROJECT_DIR$/ES6导入导出/index--ES6导入导出.html" />
@@ -124,9 +122,10 @@
         <option value="$PROJECT_DIR$/logistics_management_system_ui/src/views/system_monitoring/Warehouse.vue" />
         <option value="$PROJECT_DIR$/logistics_management_system_ui/src/views/system_management/Consumer.vue" />
         <option value="$PROJECT_DIR$/logistics_management_system_ui/src/views/system_management/DeliveryStaff.vue" />
-        <option value="$PROJECT_DIR$/logistics_management_system_ui/src/router/index.js" />
-        <option value="$PROJECT_DIR$/logistics_management_system_ui/src/views/Main.vue" />
         <option value="$PROJECT_DIR$/logistics_management_system_ui/src/views/system_management/Automobile.vue" />
+        <option value="$PROJECT_DIR$/logistics_management_system_ui/src/router/index.js" />
+        <option value="$PROJECT_DIR$/logistics_management_system_ui/src/views/access_control/User.vue" />
+        <option value="$PROJECT_DIR$/logistics_management_system_ui/src/views/Main.vue" />
       </list>
     </option>
   </component>
@@ -149,7 +148,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -173,13 +171,6 @@
               <item name="Vue" type="462c0819:PsiDirectoryNode" />
               <item name="logistics_management_system_ui" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="router" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Vue" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Vue" type="462c0819:PsiDirectoryNode" />
-              <item name="logistics_management_system_ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -188,19 +179,20 @@
               <item name="logistics_management_system_ui" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="system_management" type="462c0819:PsiDirectoryNode" />
+              <item name="access_control" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/logistics_management_system_ui/src/views/system_management" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/logistics_management_system_ui/src/views/access_control" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -209,19 +201,19 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/logistics_management_system_ui/src/views/access_control" />
+      <recent name="$PROJECT_DIR$/logistics_management_system_ui/src/views/system_management" />
+      <recent name="$PROJECT_DIR$/logistics_management_system_ui/public" />
+      <recent name="$PROJECT_DIR$/axios" />
+      <recent name="$PROJECT_DIR$/webpack基本使用/src/img" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/logistics_management_system_ui/src/views/system_management" />
       <recent name="$PROJECT_DIR$/logistics_management_system_ui/src/views/system_monitoring" />
       <recent name="$PROJECT_DIR$/logistics_management_system_ui" />
       <recent name="$PROJECT_DIR$/webpack基本使用/src/vue" />
       <recent name="$PROJECT_DIR$/webpack基本使用/src/js" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/logistics_management_system_ui/src/views/system_management" />
-      <recent name="$PROJECT_DIR$/logistics_management_system_ui/public" />
-      <recent name="$PROJECT_DIR$/axios" />
-      <recent name="$PROJECT_DIR$/webpack基本使用/src/img" />
-      <recent name="$PROJECT_DIR$/img" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -292,7 +284,8 @@
       <workItem from="1580383908248" duration="6433000" />
       <workItem from="1580398137956" duration="292000" />
       <workItem from="1580398575121" duration="204000" />
-      <workItem from="1580440514223" duration="4076000" />
+      <workItem from="1580440514223" duration="4242000" />
+      <workItem from="1580467410751" duration="6954000" />
     </task>
     <task id="LOCAL-00001" summary="webpack配置">
       <created>1579241394967</created>
@@ -420,11 +413,18 @@
       <option name="project" value="LOCAL" />
       <updated>1580441190700</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="配送车辆管理模块完成">
+      <created>1580445979126</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1580445979126</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="173332000" />
+    <option name="totallyTimeSpent" value="180452000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -443,7 +443,7 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32968536" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.329235" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32968536" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -510,20 +510,14 @@
     <MESSAGE value="修复pagesize的bug" />
     <MESSAGE value="配送人员模块完成" />
     <MESSAGE value="完善配送人员管理模块" />
-    <option name="LAST_COMMIT_MESSAGE" value="完善配送人员管理模块" />
+    <MESSAGE value="配送车辆管理模块完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="配送车辆管理模块完成" />
   </component>
   <component name="XPathView.XPathProjectComponent">
     <history />
     <find-history />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/购物车案例/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="891">
-          <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/axios/axios.min.js" />
     <entry file="file://$PROJECT_DIR$/axios/axios.js" />
     <entry file="file://$PROJECT_DIR$/Vue--基本操作/index--bind数组语法.html">
@@ -696,9 +690,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logistics_management_system_ui/src/assets/logo.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/logistics_management_system_ui/src/views/system_monitoring/Swagger.vue" />
     <entry file="file://$PROJECT_DIR$/Vue--基本操作/index--v-for和v-bind结合.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -724,38 +715,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logistics_management_system_ui/src/router/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="31" column="34" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logistics_management_system_ui/src/views/Main.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="642">
-          <caret line="34" column="39" lean-forward="true" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
-          <folding>
-            <element signature="n#style#0;n#el-aside#0;n#el-container#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#el-dropdown#0;n#span#1;n#el-header#0;n#el-container#0;n#el-container#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logistics_management_system_ui/src/views/system_management/Consumer.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="391" column="38" selection-start-line="391" selection-start-column="21" selection-end-line="391" selection-end-column="38" />
-          <folding>
-            <element signature="n#style#0;n#el-card#0;n#template#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-table#0;n#el-card#0;n#template#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/logistics_management_system_ui/src/views/system_management/Order.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="258">
@@ -769,10 +728,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/logistics_management_system_ui/src/views/system_management/Warehouse.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="299" column="42" lean-forward="true" selection-start-line="299" selection-start-column="20" selection-end-line="299" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logistics_management_system_ui/src/assets/logo.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logistics_management_system_ui/src/views/system_management/Consumer.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="388" column="14" lean-forward="true" selection-start-line="388" selection-start-column="14" selection-end-line="388" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#el-card#0;n#template#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-table#0;n#el-card#0;n#template#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logistics_management_system_ui/src/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="499">
+          <caret line="35" column="28" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logistics_management_system_ui/src/views/access_control/User.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4621">
+          <caret line="202" column="4" selection-start-line="202" selection-start-column="4" selection-end-line="202" selection-end-column="4" />
+          <folding>
+            <element signature="n#style#0;n#el-col#3;n#el-row#0;n#el-card#0;n#template#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-table#0;n#el-card#0;n#template#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#7592#7640#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logistics_management_system_ui/src/views/system_management/Automobile.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="120" column="22" lean-forward="true" selection-start-line="120" selection-start-column="22" selection-end-line="120" selection-end-column="22" />
+          <folding>
+            <element signature="n#style#0;n#el-col#1;n#el-row#0;n#el-card#0;n#template#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-table#0;n#el-card#0;n#template#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#el-dialog#0;n#div#0;n#template#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/logistics_management_system_ui/src/views/system_management/DeliveryStaff.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="231" column="25" lean-forward="true" selection-start-line="231" selection-start-column="25" selection-end-line="231" selection-end-column="25" />
+        <state relative-caret-position="319">
+          <caret line="114" column="31" selection-start-line="114" selection-start-column="31" selection-end-line="114" selection-end-column="31" />
           <folding>
             <element signature="n#style#0;n#el-col#1;n#el-row#0;n#el-card#0;n#template#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#el-table#0;n#el-card#0;n#template#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -781,22 +795,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logistics_management_system_ui/src/views/system_management/Warehouse.vue">
+    <entry file="file://$PROJECT_DIR$/logistics_management_system_ui/src/views/Main.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="299" column="42" lean-forward="true" selection-start-line="299" selection-start-column="20" selection-end-line="299" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logistics_management_system_ui/src/views/system_management/Automobile.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="190" lean-forward="true" selection-start-line="190" selection-end-line="190" />
+        <state relative-caret-position="499">
+          <caret line="65" column="45" lean-forward="true" selection-start-line="65" selection-start-column="45" selection-end-line="65" selection-end-column="45" />
           <folding>
-            <element signature="n#style#0;n#el-col#1;n#el-row#0;n#el-card#0;n#template#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-table#0;n#el-card#0;n#template#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#el-dialog#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="e#5150#5198#0" expanded="true" />
+            <element signature="n#style#0;n#el-aside#0;n#el-container#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#el-dropdown#0;n#span#1;n#el-header#0;n#el-container#0;n#el-container#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

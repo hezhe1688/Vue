@@ -40,7 +40,7 @@
                     </el-submenu>
                     <el-submenu index="4">
                         <template slot="title"><i class="el-icon-lock"></i>权限控制</template>
-                        <el-menu-item index="4-1">
+                        <el-menu-item index="/user">
                             <i class="el-icon-wind-power"></i>
                             <span slot="title">用户管理</span>
                         </el-menu-item>
@@ -63,7 +63,7 @@
                             <i class="el-icon-orange"></i>
                             <span slot="title">在线用户</span>
                         </el-menu-item>
-                        <el-menu-item index=" lsdruid/index.html">
+                        <el-menu-item index="druid/index.html">
                             <i class="el-icon-wallet"></i>
                             <span slot="title">SQL监控</span>
                         </el-menu-item>
