@@ -98,13 +98,13 @@
                 destroy-on-close
                 :before-close="handleClose">
             <el-form ref="deliveryStaff" :model="deliveryStaff" label-width="130px">
-                <el-form-item label="配送人员姓名" prop="name">
+                <el-form-item label="配送人员姓名">
                     <el-input v-model="deliveryStaff.name"></el-input>
                 </el-form-item>
-                <el-form-item label="配送人身份证" prop="idCard">
+                <el-form-item label="配送人身份证">
                     <el-input v-model="deliveryStaff.idCard"></el-input>
                 </el-form-item>
-                <el-form-item label="配送人性别" prop="gender">
+                <el-form-item label="配送人性别">
                     <el-input v-model="deliveryStaff.gender"></el-input>
                 </el-form-item>
                 <el-form-item label="准驾车型">
@@ -225,7 +225,6 @@
 				})
 			},
 
-
 			//打开新增对话框数据,并且将车辆信息绑定上去
 			deliveryStaff_showDialog() {
 				this.dialogVisible = true;
@@ -300,6 +299,5 @@
 		}
 	}
 </script>
-
 <style scoped>
 </style>
