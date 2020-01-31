@@ -33,7 +33,7 @@
                             <i class="el-icon-place"></i>
                             <span slot="title">配送人员管理</span>
                         </el-menu-item>
-                        <el-menu-item index="3-6">
+                        <el-menu-item index="/automobile">
                             <i class="el-icon-truck"></i>
                             <span slot="title">配送车辆管理</span>
                         </el-menu-item>

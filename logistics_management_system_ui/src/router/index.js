@@ -28,6 +28,10 @@ const routes = [
 				path: '/deliveryStaff',
 				component: () => import('../views/system_management/DeliveryStaff.vue')
 			},
+			{
+				path: '/automobile',
+				component: () => import('../views/system_management/Automobile.vue')
+			},
 		]
 	},
 ]
