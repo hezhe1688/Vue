@@ -36,6 +36,10 @@ const routes = [
 				path: '/user',
 				component: () => import('../views/access_control/User.vue')
 			},
+			{
+				path: '/role',
+				component: () => import('../views/access_control/Role.vue')
+			},
 		]
 	},
 ]

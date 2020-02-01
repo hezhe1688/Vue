@@ -125,7 +125,7 @@
                 <el-button type="primary" @click="user_addData('user')">新 增</el-button>
             </span>
         </el-dialog>
-        <!--修改仓库信息对话框-->
+        <!--修改用户信息对话框-->
         <el-dialog
                 title="修改仓库"
                 :visible.sync="editDialogVisible"

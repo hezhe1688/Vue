@@ -44,7 +44,7 @@
                             <i class="el-icon-wind-power"></i>
                             <span slot="title">用户管理</span>
                         </el-menu-item>
-                        <el-menu-item index="4-2">
+                        <el-menu-item index="/role">
                             <i class="el-icon-bank-card"></i>
                             <span slot="title">角色管理</span>
                         </el-menu-item>
