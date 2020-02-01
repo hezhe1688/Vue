@@ -48,7 +48,7 @@
                             <i class="el-icon-bank-card"></i>
                             <span slot="title">角色管理</span>
                         </el-menu-item>
-                        <el-menu-item index="4-3">
+                        <el-menu-item index="/permission">
                             <i class="el-icon-key"></i>
                             <span slot="title">权限管理</span>
                         </el-menu-item>

@@ -40,6 +40,10 @@ const routes = [
 				path: '/role',
 				component: () => import('../views/access_control/Role.vue')
 			},
+			{
+				path: '/permission',
+				component: () => import('../views/access_control/Permission.vue')
+			},
 		]
 	},
 ]

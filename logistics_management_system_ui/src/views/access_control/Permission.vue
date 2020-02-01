@@ -4,7 +4,7 @@
             <el-card class="box-card">
                 <el-row :gutter="100">
                     <el-col :span="2">
-                        <el-button @click="role_showDialog()" type="primary" plain>新增角色</el-button>
+                        <el-button @click="permission_showDialog()" type="primary" plain>新增权限</el-button>
                     </el-col>
                     <el-col :span="2">
                         <el-button type="warning" plain>取消操作</el-button>
@@ -26,22 +26,18 @@
                             fixed
                             sortable
                             prop="id"
-                            label="角色ID"
+                            label="权限ID"
                             width="90">
                     </el-table-column>
                     <el-table-column
-                            prop="roleName"
-                            label="角色名称"
-                            width="120">
+                            prop="permissionName"
+                            label="权限名称"
+                            width="330">
                     </el-table-column>
                     <el-table-column
-                            label="拥有资源"
-                            width="650">
-                        <template slot-scope="scope">
-                            <span v-for="(item) in scope.row.permissions">
-                                【{{item.url}}】
-                            </span>
-                        </template>
+                            prop="url"
+                            label="权限资源"
+                            width="330">
                     </el-table-column>
                     <el-table-column
                             label="操作"
@@ -50,7 +46,7 @@
                             <el-button
                                     size="mini"
                                     type="danger"
-                                    @click="role_handleDelete(scope.$index, scope.row)">删除
+                                    @click="permission_handleDelete(scope.$index, scope.row)">删除
                             </el-button>
                         </template>
                     </el-table-column>
@@ -70,34 +66,24 @@
                 </el-pagination>
             </div>
         </template>
-        <!--新增角色对话框-->
+        <!--新增权限对话框-->
         <el-dialog
-                title="新增角色"
+                title="新增权限"
                 :visible.sync="dialogVisible"
                 width="500px"
                 destroy-on-close
                 :before-close="handleClose">
-            <el-form ref="role" :model="role" label-width="110px">
+            <el-form ref="permission" :model="permission" label-width="110px">
                 <el-form-item label="用户名">
-                    <el-input v-model="role.roleName"></el-input>
+                    <el-input v-model="permission.permissionName"></el-input>
                 </el-form-item>
                 <el-form-item label="角色代码">
-                    <el-input v-model="role.code"></el-input>
-                </el-form-item>
-                <el-form-item label="关联角色">
-                    <el-select multiple collapse-tags v-model="role.permissions" placeholder="请选择">
-                        <el-option
-                                v-for="item in options"
-                                :key="item.id"
-                                :label="item.permissionName"
-                                :value="item.id">
-                        </el-option>
-                    </el-select>
+                    <el-input v-model="permission.url"></el-input>
                 </el-form-item>
             </el-form>
             <span slot="footer" class="dialog-footer">
                 <el-button @click="addCancel()">取 消</el-button>
-                <el-button type="primary" @click="role_addData('role')">新 增</el-button>
+                <el-button type="primary" @click="permission_addData('permission')">新 增</el-button>
             </span>
         </el-dialog>
     </div>
@@ -108,17 +94,13 @@
 	import qs from 'qs'
 
 	export default {
-		name: "role",
+		name: "permission",
 		data() {
 			return {
-				role: {
+				permission: {
 					id: '',
-					roleName: '',
-					permissions: {
-						id: '',
-						permissionName: '',
-						url: ''
-					}
+					permissionName: '',
+					url: ''
 				},
 				tableData: [],  //所有数据
 				multipleSelection: [], //多选数组
@@ -127,11 +109,10 @@
 				currentPage: 1, //当前页
 				pageSize: 8,  //pageSizes中的选项
 				total: 0, //总条数
-				role_searchInput: '',  //搜索框输入的值
+				permission_searchInput: '',  //搜索框输入的值
 				loading: true,  //数据加载
 				dialogVisible: false,  //新增对话框
 				options: [],
-				pers: [] //用于存储传递到后台的权限资源
 			}
 		},
 		//当vue对象创建时加载进来
@@ -143,7 +124,7 @@
 			getAllData() {
 				let that = this;
 				request({
-					url: '/getAllPagerRole',
+					url: '/getAllPagerPermission',
 					method: 'get',
 					params: {
 						currentPage: this.currentPage,
@@ -169,9 +150,9 @@
 			},
 
 			//单条记录删除
-			role_handleDelete(index, row) {
+			permission_handleDelete(index, row) {
 				request({
-					url: '/deleteRoleById',
+					url: '/deletePermissionById',
 					method: 'delete',
 					params: {
 						id: row.id
@@ -197,38 +178,28 @@
 				this.$confirm('确认关闭？')
 					.then(_ => {
 						done();
-						this.role = {}; //当点击编辑按钮关掉以后仍然有数据绑定
+						this.permission = {}; //当点击编辑按钮关掉以后仍然有数据绑定
 					})
 					.catch(_ => {
 					});
 			},
 
 			//打开新增对话框数据
-			role_showDialog() {
+			permission_showDialog() {
 				this.dialogVisible = true;
-				let that = this;
-				request({
-					url: "/getPermissionsMgs",
-					method: 'get'
-				}).then(res => {
-					that.options = res.data;
-				})
 			},
 
 			//新增数据
-			role_addData() {
+			permission_addData() {
 				let that = this;
+				const data = {
+					permissionName: that.permission.permissionName,
+					url: that.permission.url
+                }
 				request({
-					url: '/insertRole',
+					url: '/insertPermission',
 					method: 'post',
-					params: {
-						roleName: that.role.roleName,
-						pers:that.role.permissions
-                    },
-					//用于格式化数组
-					paramsSerializer: function (params) {
-						return qs.stringify(params, {arrayFormat: 'repeat'})
-					}
+					data: qs.stringify(data)
 				}).then(res => {
 					if (res !== 0) {
 						this.$notify({
@@ -237,7 +208,7 @@
 							type: 'success'
 						});
 						that.dialogVisible = false;
-						that.role = {};
+						that.permission = {};
 						that.getAllData();
 					}
 				}).catch(res => {
@@ -251,7 +222,7 @@
 			//新增取消按钮
 			addCancel() {
 				this.dialogVisible = false;
-				this.role = {};
+				this.permission = {};
 			},
 		}
 	}

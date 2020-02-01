@@ -114,10 +114,6 @@
                 <el-form-item label="汽车类型">
                     <el-input v-model="automobile.automobileType"></el-input>
                 </el-form-item>
-                <el-form-item label="汽车状态">
-                    <el-radio v-model="automobile.state" :label="1">正常状态</el-radio>
-                    <el-radio v-model="automobile.state" :label="0">维修状态</el-radio>
-                </el-form-item>
             </el-form>
             <span slot="footer" class="dialog-footer">
                 <el-button @click="editCancel()">取 消</el-button>
@@ -282,7 +278,6 @@
 					id: that.automobile.id,
 					licensePlate: that.automobile.licensePlate,
 					automobileType: that.automobile.automobileType,
-					state: that.automobile.state,
 				};
 				request({
 					url: '/automobileEditData',

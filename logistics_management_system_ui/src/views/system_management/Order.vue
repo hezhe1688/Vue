@@ -3,16 +3,16 @@
         <template>
             <el-card class="box-card" style="width: 1200px;">
                 <el-row :gutter="100">
-                    <el-col :span="2">
+                    <el-col :span="1">
                         <el-button @click="order_showDialog()" type="primary" plain>新增订单</el-button>
                     </el-col>
-                    <el-col :span="2">
+                    <el-col :span="1">
                         <el-button @click="order_toggleSelection()" type="warning" plain>取消操作</el-button>
                     </el-col>
-                    <el-col :span="2">
+                    <el-col :span="1">
                         <el-button @click="order_delClick()" type="danger" plain>批量删除</el-button>
                     </el-col>
-                    <el-col :span="2">
+                    <el-col :span="1">
                         <el-button @click="exportExcel()" type="info" plain>文件导出</el-button>
                     </el-col>
                     <el-col :span="4">
@@ -27,10 +27,10 @@
                                 :picker-options="dataPickerOptions">
                         </el-date-picker>
                     </el-col>
-                    <el-col :span="3">
-                        <el-button @click="order_dataSearchBtn()" type="success" plain>日期搜索订单</el-button>
+                    <el-col :span="2" style="margin-left: 150px">
+                        <el-button @click="order_dataSearchBtn()" type="success" plain>日期搜索</el-button>
                     </el-col>
-                    <el-col :span="6">
+                    <el-col :span="5">
                         <el-input
                                 placeholder="输入订单ID查询"
                                 clearable
@@ -38,7 +38,7 @@
                                 v-model="order_searchInput">
                         </el-input>
                     </el-col>
-                    <el-col :span="3" style="margin-left: -90px">
+                    <el-col :span="1" style="margin-left: -90px">
                         <el-button @click="order_searchBtn()" type="success" plain>搜索订单</el-button>
                     </el-col>
                 </el-row>
