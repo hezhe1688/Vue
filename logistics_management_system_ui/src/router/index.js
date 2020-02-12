@@ -5,7 +5,7 @@ Vue.use(VueRouter)
 
 const routes = [
 	{
-		path: '/',
+		path: '/main',
 		component: () => import('../views/Main.vue'),
 		children: [
 			{
@@ -43,6 +43,10 @@ const routes = [
 			{
 				path: '/permission',
 				component: () => import('../views/access_control/Permission.vue')
+			},
+			{
+				path: '/logs',
+				component: () => import('../views/log_management/Logs.vue')
 			},
 		]
 	},

@@ -59,10 +59,6 @@
                             <i class="el-icon-link"></i>
                             <span slot="title">Swagger2接口文档</span>
                         </el-menu-item>
-                        <el-menu-item index="5-1">
-                            <i class="el-icon-orange"></i>
-                            <span slot="title">在线用户</span>
-                        </el-menu-item>
                         <el-menu-item index="druid/index.html">
                             <i class="el-icon-wallet"></i>
                             <span slot="title">SQL监控</span>
@@ -74,21 +70,9 @@
                     </el-submenu>
                     <el-submenu index="6">
                         <template slot="title"><i class="el-icon-setting"></i>日志管理</template>
-                        <el-menu-item index="6-1">
-                            <i class="el-icon-folder-opened"></i>
-                            <span slot="title">操作日志</span>
-                        </el-menu-item>
-                        <el-menu-item index="6-2">
-                            <i class="el-icon-document-copy"></i>
-                            <span slot="title">日志备份</span>
-                        </el-menu-item>
-                        <el-menu-item index="6-3">
+                        <el-menu-item index="/logs">
                             <i class="el-icon-mobile"></i>
                             <span slot="title">登录日志</span>
-                        </el-menu-item>
-                        <el-menu-item index="6-4">
-                            <i class="el-icon-attract"></i>
-                            <span slot="title">异常日志</span>
                         </el-menu-item>
                     </el-submenu>
                     <el-submenu index="7">
