@@ -203,20 +203,20 @@
 					value: '生活电器',
 					label: '生活电器'
 				}, {
-					value: '男装',
-					label: '男装'
-				}, {
 					value: '电脑办公',
 					label: '电脑办公'
 				}, {
 					value: '图书音像',
 					label: '图书音像'
-				}, {
-					value: '女装',
-					label: '女装'
-				}, {
+				},{
 					value: '母婴玩具',
 					label: '母婴玩具'
+				}, {
+					value: '男装',
+					label: '男装'
+				},{
+					value: '女装',
+					label: '女装'
 				}],
 
 				//新增数据进行校验

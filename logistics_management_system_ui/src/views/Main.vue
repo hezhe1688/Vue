@@ -3,11 +3,11 @@
         <el-container>
             <!--侧边栏-->
             <el-aside width="210px" style="height: 710px">
-                <el-menu default-active="2" :default-openeds="['2']" router>
+                <el-menu default-active="/home" :default-openeds="['/home']" router>
                     <el-menu-item index="1" class="navigation-menu">
                         <span slot="title">Logistics Management</span>
                     </el-menu-item>
-                    <el-menu-item index="">
+                    <el-menu-item index="/home">
                         <i class="el-icon-house"></i>
                         <span slot="title">首页</span>
                     </el-menu-item>
@@ -63,10 +63,6 @@
                             <i class="el-icon-wallet"></i>
                             <span slot="title">SQL监控</span>
                         </el-menu-item>
-                        <el-menu-item index="5-3">
-                            <i class="el-icon-no-smoking"></i>
-                            <span slot="title">服务监控</span>
-                        </el-menu-item>
                     </el-submenu>
                     <el-submenu index="6">
                         <template slot="title"><i class="el-icon-setting"></i>日志管理</template>
@@ -103,12 +99,12 @@
             <el-container>
                 <!--头部信息-->
                 <el-header>
-                    <span class="left">物流管理系统后台管理</span>
+                    <span class="left">H&Z 物流管理系统后台管理</span>
                     <span class="right">
                         <el-link :underline="false" icon="el-icon-time" >{{nowTime}}</el-link>
-                        <el-link :underline="false" style="margin-left: 15px">网站首页</el-link>
-                        <el-link :underline="false" style="margin-left: 15px">贺哲</el-link>
-                        <el-link :underline="false" icon="el-icon-switch-button" style="margin-left: 15px">退出登录</el-link>
+                        <el-link :underline="false" style="margin-left: 15px" href="/homepage">网站首页</el-link>
+                        <el-link :underline="false" style="margin-left: 15px">欢迎你</el-link>
+                        <el-link :underline="false" icon="el-icon-switch-button" style="margin-left: 15px" href="/logout">退出登录</el-link>
                     </span>
                 </el-header>
                 <!--中间区域-->
@@ -129,6 +125,11 @@
 			}
 		},
 		methods: {
+			nowTimes() {
+				this.timeFormate(new Date());
+				setTimeout(this.nowTimes, 1000);
+				this.clear()
+			},
 			timeFormate(timeStamp) {
 				let year = new Date(timeStamp).getFullYear();
 				let month = new Date(timeStamp).getMonth() + 1 < 10 ? "0" + (new Date(timeStamp).getMonth() + 1) : new Date(timeStamp).getMonth() + 1;
@@ -136,15 +137,10 @@
 				let hh = new Date(timeStamp).getHours() < 10 ? "0" + new Date(timeStamp).getHours() : new Date(timeStamp).getHours();
 				let mm = new Date(timeStamp).getMinutes() < 10 ? "0" + new Date(timeStamp).getMinutes() : new Date(timeStamp).getMinutes();
 				let ss = new Date(timeStamp).getSeconds() < 10 ? "0" + new Date(timeStamp).getSeconds() : new Date(timeStamp).getSeconds();
-				this.nowTime = year + "." + month + "." + date + "  " + "星期" + '日一二三四五六'.charAt(new Date().getDay()) + " " + hh + ":" + mm + ':' + ss;
-			},
-			nowTimes() {
-				this.timeFormate(new Date());
-				setInterval(this.nowTimes, 1000);
-				this.clear()
+				this.nowTime = year + "." + month + "." + date + "  " + "星期" + '日一二三四五六'.charAt(new Date().getDay());
 			},
 			clear() {
-				clearInterval(this.nowTimes)
+				clearInterval(this.nowTimes);
 				this.nowTimes = null;
 			}
 		},

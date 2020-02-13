@@ -1,13 +1,17 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
 	{
 		path: '/main',
 		component: () => import('../views/Main.vue'),
 		children: [
+			{
+				path: '/home',
+				component: () => import('../views/Home/Home.vue'),
+			},
 			{
 				path: '/consumer',
 				component: () => import('../views/system_management/Consumer.vue'),
