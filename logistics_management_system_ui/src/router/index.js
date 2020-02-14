@@ -37,6 +37,10 @@ const routes = [
 				component: () => import('../views/system_management/Automobile.vue')
 			},
 			{
+				path: '/feedback',
+				component: () => import('../views/system_management/Feedback.vue')
+			},
+			{
 				path: '/user',
 				component: () => import('../views/access_control/User.vue')
 			},

@@ -37,6 +37,10 @@
                             <i class="el-icon-truck"></i>
                             <span slot="title">配送车辆管理</span>
                         </el-menu-item>
+                        <el-menu-item index="/feedback">
+                            <i class="el-icon-office-building"></i>
+                            <span slot="title">用户反馈</span>
+                        </el-menu-item>
                     </el-submenu>
                     <el-submenu index="4">
                         <template slot="title"><i class="el-icon-lock"></i>权限控制</template>
