@@ -48,7 +48,7 @@
                     <el-table-column
                             prop="productName"
                             label="产品名称"
-                            width="280">
+                            width="350">
                     </el-table-column>
                     <el-table-column
                             prop="productType"
@@ -80,7 +80,8 @@
                             </el-button>
                         </template>
                     </el-table-column>
-                </el-table>
+                </el-table
+>
             </el-card>
             <!--分页组件-->
             <div class="block">

@@ -53,6 +53,14 @@ const routes = [
 				component: () => import('../views/access_control/Permission.vue')
 			},
 			{
+				path: '/swagger',
+				component: () => import('../views/system_monitoring/Swagger.vue')
+			},
+			{
+				path: '/druid',
+				component: () => import('../views/system_monitoring/Druid.vue')
+			},
+			{
 				path: '/logs',
 				component: () => import('../views/log_management/Logs.vue')
 			},

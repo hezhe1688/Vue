@@ -3,7 +3,7 @@
         <el-container>
             <!--侧边栏-->
             <el-aside width="210px" style="height: 710px">
-                <el-menu default-active="/home" :default-openeds="['/home']" router>
+                <el-menu  default-active="/home" :default-openeds="['/home']" router>
                     <el-menu-item index="1" class="navigation-menu">
                         <span slot="title">Logistics Management</span>
                     </el-menu-item>
@@ -59,11 +59,11 @@
                     </el-submenu>
                     <el-submenu index="5">
                         <template slot="title"><i class="el-icon-cpu"></i>系统监控</template>
-                        <el-menu-item index="/swagger-ui.html#/">
+                        <el-menu-item index="/swagger">
                             <i class="el-icon-link"></i>
                             <span slot="title">Swagger2接口文档</span>
                         </el-menu-item>
-                        <el-menu-item index="druid/index.html">
+                        <el-menu-item index="/druid">
                             <i class="el-icon-wallet"></i>
                             <span slot="title">SQL监控</span>
                         </el-menu-item>

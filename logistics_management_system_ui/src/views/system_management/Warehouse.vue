@@ -191,9 +191,9 @@
 				tableData: [],  //所有数据
 				multipleSelection: [], //多选数组
 				ids: [], //批量删除ids
-				pageSizes: [8, 10, 15, 20, 25, 30],
+				pageSizes: [12, 10, 15, 20, 25, 30],
 				currentPage: 1, //当前页
-				pageSize: 8,  //pageSizes中的选项
+				pageSize: 12,  //pageSizes中的选项
 				total: 0, //总条数
 				warehouse_searchInput: '',  //搜索框输入的值
 				loading: true,  //数据加载

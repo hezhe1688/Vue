@@ -43,12 +43,12 @@
                     <el-table-column
                             prop="username"
                             label="用户名"
-                            width="120">
+                            width="180">
                     </el-table-column>
                     <el-table-column
                             prop="password"
                             label="用户密码"
-                            width="200">
+                            width="450">
                     </el-table-column>
                     <el-table-column
                             prop="state"
@@ -58,7 +58,7 @@
                     <el-table-column
                             prop="roleName"
                             label="所属角色"
-                            width="120">
+                            width="150">
                     </el-table-column>
                     <el-table-column
                             label="操作"

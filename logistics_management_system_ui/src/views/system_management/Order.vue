@@ -60,8 +60,8 @@
                             fixed
                             sortable
                             prop="id"
-                            label="订单ID"
-                    >
+                            width="200"
+                            label="订单ID">
                     </el-table-column>
                     <el-table-column
                             prop="shippersName"
@@ -76,7 +76,7 @@
                     <el-table-column
                             prop="shippersTel"
                             label="发货人电话"
-                            width="100">
+                            width="110">
                     </el-table-column>
                     <el-table-column
                             prop="recipientName"
@@ -91,12 +91,12 @@
                     <el-table-column
                             prop="recipientTel"
                             label="收件人电话"
-                            width="100">
+                            width="110">
                     </el-table-column>
                     <el-table-column
                             prop="orderData"
                             label="订单日期"
-                            width="90">
+                            width="120">
                     </el-table-column>
                     <el-table-column
                             label="操作"

@@ -22,14 +22,17 @@ const install = function (Vue) {
 									['生活电器', 41.1, 30.4, 65.1, 53.3, 83.8, 98.7],
 									['电脑办公', 86.5, 92.1, 85.7, 83.1, 73.4, 55.1],
 									['图书音像', 24.1, 67.2, 79.5, 86.4, 65.2, 82.5],
-									['男装', 55.2, 67.1, 69.2, 72.4, 53.9, 39.1],
-									['女装', 23.2, 45.1, 58.2, 65.4, 39.7, 55.9]
+									['母婴玩具', 26.2, 67.1, 69.2, 72.4, 53.9, 39.1],
+									['男装', 34.2, 32.1, 43.2, 54.4, 39.7, 38.9],
+									['女装', 29.2, 45.1, 50.2, 55.4, 30.7, 45.9],
+
 								]
 							},
 							xAxis: {type: 'category'},
 							yAxis: {gridIndex: 0},
 							grid: {top: '55%'},
 							series: [
+								{type: 'line', smooth: true, seriesLayoutBy: 'row'},
 								{type: 'line', smooth: true, seriesLayoutBy: 'row'},
 								{type: 'line', smooth: true, seriesLayoutBy: 'row'},
 								{type: 'line', smooth: true, seriesLayoutBy: 'row'},
