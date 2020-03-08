@@ -77,7 +77,7 @@
                     </el-submenu>
                     <el-submenu index="7">
                         <template slot="title"><i class="el-icon-pie-chart"></i>运维管理</template>
-                        <el-menu-item>
+                        <el-menu-item index="/server">
                             <i class="el-icon-notebook-1"></i>
                             <span slot="title">服务器</span>
                         </el-menu-item>

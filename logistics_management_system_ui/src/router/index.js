@@ -64,6 +64,10 @@ const routes = [
 				path: '/logs',
 				component: () => import('../views/log_management/Logs.vue')
 			},
+			{
+				path: '/server',
+				component: () => import('../views/operations_management/Server.vue')
+			},
 		]
 	},
 ]
